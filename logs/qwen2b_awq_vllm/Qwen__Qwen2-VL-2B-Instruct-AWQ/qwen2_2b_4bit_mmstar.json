@@ -1,0 +1,174 @@
+{
+  "results": {
+    "mmstar": {
+      "alias": "mmstar",
+      "coarse perception,none": 0.5476127624377453,
+      "coarse perception_stderr,none": "N/A",
+      "coarse perception_stderr_clt,none": 0.03166998503010743,
+      "coarse perception_stderr_clustered,none": "N/A",
+      "average,none": 0.40505691768151475,
+      "average_stderr,none": "N/A",
+      "average_stderr_clt,none": 0.012670598502621996,
+      "average_stderr_clustered,none": "N/A",
+      "fine-grained perception,none": 0.3792127241464014,
+      "fine-grained perception_stderr,none": "N/A",
+      "fine-grained perception_stderr_clt,none": 0.0309931978545779,
+      "fine-grained perception_stderr_clustered,none": "N/A",
+      "instance reasoning,none": 0.5024883363049365,
+      "instance reasoning_stderr,none": "N/A",
+      "instance reasoning_stderr_clt,none": 0.03167708558254714,
+      "instance reasoning_stderr_clustered,none": "N/A",
+      "logical reasoning,none": 0.36845453776146847,
+      "logical reasoning_stderr,none": "N/A",
+      "logical reasoning_stderr_clt,none": 0.030938207620401222,
+      "logical reasoning_stderr_clustered,none": "N/A",
+      "math,none": 0.351549273812706,
+      "math_stderr,none": "N/A",
+      "math_stderr_clt,none": 0.030020073605457873,
+      "math_stderr_clustered,none": "N/A",
+      "science & technology,none": 0.2810238716258309,
+      "science & technology_stderr,none": "N/A",
+      "science & technology_stderr_clt,none": 0.027934518957690863,
+      "science & technology_stderr_clustered,none": "N/A"
+    }
+  },
+  "group_subtasks": {
+    "mmstar": []
+  },
+  "configs": {
+    "mmstar": {
+      "task": "mmstar",
+      "dataset_path": "Lin-Chen/MMStar",
+      "dataset_kwargs": {
+        "token": true
+      },
+      "test_split": "val",
+      "full_docs": false,
+      "process_results_use_image": false,
+      "doc_to_visual": "<function mmstar_doc_to_visual at 0x768c68385120>",
+      "doc_to_text": "<function mmstar_doc_to_text at 0x768c68385e40>",
+      "doc_to_target": "answer",
+      "process_results": "<function mmstar_process_results at 0x768c68386980>",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "coarse perception",
+          "aggregation": "<function mmstar_aggregate_results at 0x768c683872e0>",
+          "higher_is_better": true
+        },
+        {
+          "metric": "fine-grained perception",
+          "aggregation": "<function mmstar_aggregate_results at 0x768c68387ba0>",
+          "higher_is_better": true
+        },
+        {
+          "metric": "instance reasoning",
+          "aggregation": "<function mmstar_aggregate_results at 0x768c683b04a0>",
+          "higher_is_better": true
+        },
+        {
+          "metric": "logical reasoning",
+          "aggregation": "<function mmstar_aggregate_results at 0x768c683b0d60>",
+          "higher_is_better": true
+        },
+        {
+          "metric": "science & technology",
+          "aggregation": "<function mmstar_aggregate_results at 0x768c683b1620>",
+          "higher_is_better": true
+        },
+        {
+          "metric": "math",
+          "aggregation": "<function mmstar_aggregate_results at 0x768c683b1ee0>",
+          "higher_is_better": true
+        },
+        {
+          "metric": "average",
+          "aggregation": "<function mmstar_aggregate_results at 0x768c683b27a0>",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n\n"
+        ],
+        "do_sample": false
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "score_key": "score",
+      "metadata": [
+        {
+          "version": 0.0
+        }
+      ],
+      "lmms_eval_specific_kwargs": {
+        "default": {
+          "pre_prompt": "",
+          "post_prompt": "\nAnswer with the option's letter from the given choices directly"
+        },
+        "qwen3_vl": {
+          "pre_prompt": "Question: ",
+          "post_prompt": "Answer with the option letter only."
+        },
+        "pre_prompt": "",
+        "post_prompt": "\nAnswer with the option's letter from the given choices directly"
+      }
+    }
+  },
+  "versions": {
+    "mmstar": "Yaml"
+  },
+  "n-shot": {
+    "mmstar": 0
+  },
+  "higher_is_better": {
+    "mmstar": {
+      "coarse perception": true,
+      "fine-grained perception": true,
+      "instance reasoning": true,
+      "logical reasoning": true,
+      "science & technology": true,
+      "math": true,
+      "average": true
+    }
+  },
+  "n-samples": {
+    "mmstar": {
+      "original": 1500,
+      "effective": 1500
+    }
+  },
+  "config": {
+    "model": "vllm",
+    "model_args": "model=Qwen/Qwen2-VL-2B-Instruct-AWQ,quantization=awq,gpu_memory_utilization=0.7,max_model_len=2048",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": "",
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": null,
+  "date": "20260127_190512",
+  "task_hashes": {},
+  "model_source": "vllm",
+  "model_name": "Qwen/Qwen2-VL-2B-Instruct-AWQ",
+  "model_name_sanitized": "Qwen__Qwen2-VL-2B-Instruct-AWQ",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 6287.524260927,
+  "end_time": 6753.282852173,
+  "total_evaluation_time_seconds": "465.7585912459999"
+}

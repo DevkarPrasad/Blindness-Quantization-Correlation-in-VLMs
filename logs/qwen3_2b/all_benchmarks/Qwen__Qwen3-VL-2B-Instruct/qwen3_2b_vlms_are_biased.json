@@ -1,0 +1,143 @@
+{
+  "results": {
+    "vlms_are_biased": {
+      "alias": "vlms_are_biased",
+      "accuracy,none": 0.23922413793103448,
+      "accuracy_stderr,none": 0.008086754490510354,
+      "accuracy_stderr_clt,none": 0.008086754490510443,
+      "accuracy_stderr_clustered,none": "N/A",
+      "bias_ratio,none": 0.5693247126436781,
+      "bias_ratio_stderr,none": 0.009386385585382923,
+      "bias_ratio_stderr_clt,none": 0.009386385585382783,
+      "bias_ratio_stderr_clustered,none": "N/A",
+      "accuracy_by_topic,none": {
+        "Optical Illusion": 0.5088383838383839,
+        "Game Boards": 0.05357142857142857,
+        "Patterned Grid": 0.19940476190476192,
+        "Chess Pieces": 0.0,
+        "Logos": 0.2971014492753623,
+        "Flags": 0.24583333333333332,
+        "Animals": 0.009157509157509158,
+        "overall": 0.23922413793103448
+      },
+      "accuracy_by_topic_stderr,none": "N/A",
+      "accuracy_by_topic_stderr_clt,none": "N/A",
+      "accuracy_by_topic_stderr_clustered,none": "N/A"
+    }
+  },
+  "group_subtasks": {
+    "vlms_are_biased": []
+  },
+  "configs": {
+    "vlms_are_biased": {
+      "task": "vlms_are_biased",
+      "dataset_path": "anvo25/vlms-are-biased",
+      "test_split": "main",
+      "full_docs": false,
+      "process_results_use_image": false,
+      "doc_to_visual": "<function vlms_are_biased_doc_to_visual at 0x0000024F17082AC0>",
+      "doc_to_text": "<function vlms_are_biased_doc_to_text at 0x0000024F170831A0>",
+      "doc_to_target": "ground_truth",
+      "process_results": "<function vlms_are_biased_process_results at 0x0000024F17083600>",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "accuracy",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "bias_ratio",
+          "aggregation": "mean",
+          "higher_is_better": false
+        },
+        {
+          "metric": "accuracy_by_topic",
+          "aggregation": "<function vlms_are_biased_aggregate_by_topic at 0x0000024F170822A0>",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "max_new_tokens": 32,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "num_beams": 1,
+        "do_sample": false,
+        "until": [
+          "\n\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "score_key": "score",
+      "metadata": {
+        "version": 1.0,
+        "description": "Vision Language Models are Biased benchmark",
+        "paper_url": "https://arxiv.org/abs/2505.23941",
+        "project_page": "https://vlmsarebiased.github.io"
+      },
+      "lmms_eval_specific_kwargs": {
+        "default": {
+          "pre_prompt": "",
+          "post_prompt": "",
+          "use_dataset_prompt": true
+        },
+        "pre_prompt": "",
+        "post_prompt": "",
+        "use_dataset_prompt": true
+      }
+    }
+  },
+  "versions": {
+    "vlms_are_biased": 1.0
+  },
+  "n-shot": {
+    "vlms_are_biased": 0
+  },
+  "higher_is_better": {
+    "vlms_are_biased": {
+      "accuracy": true,
+      "bias_ratio": false,
+      "accuracy_by_topic": true
+    }
+  },
+  "n-samples": {
+    "vlms_are_biased": {
+      "original": 2784,
+      "effective": 2784
+    }
+  },
+  "config": {
+    "model": "qwen3_vl",
+    "model_args": "pretrained=Qwen/Qwen3-VL-2B-Instruct",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": "",
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "d41e3210",
+  "date": "20260123_154714",
+  "task_hashes": {},
+  "model_source": "qwen3_vl",
+  "model_name": "Qwen/Qwen3-VL-2B-Instruct",
+  "model_name_sanitized": "Qwen__Qwen3-VL-2B-Instruct",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": null,
+  "chat_template_sha": null,
+  "start_time": 36624.9791977,
+  "end_time": 39676.8363587,
+  "total_evaluation_time_seconds": "3051.857161"
+}
